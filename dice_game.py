@@ -9,20 +9,42 @@ print(f"Welcome {name}!\n")
 num_dice = int(input("How many dice would you like to roll?  "))
 
 roll_count = 0 
+roll_history = []
+
+roll_history = []
+
+print("Welcome to the Dice Rolling Game!")
+print("Type 'r' to roll, 'h' to see history, or 'q' to quit.")
 
 while True:
-    print("\nMenu: [R] Roll  [Q] Quit")
-    choice = input("Choose an option: ").strip().lower()
+    choice = input("\nEnter your choice (r/h/q): ").lower()
 
     if choice == "r":
-        results = roll_dice(num_dice)
-        roll_count += 1
+        # Ask how many dice to roll
+        num_dice = int(input("How many dice do you want to roll? "))
+
+        # Roll the dice
+        results = [random.randint(1, 6) for _ in range(num_dice)]
         total = sum(results)
-        print(f"You rolled: {' '.join(str(x) for x in results)} | total ={total}")
-        print(f"Rolls this session: {roll_count}")
+
+        print(f"You rolled: {results}")
+        print(f"Total: {total}")
+
+        # Save this roll to history
+        roll_history.append((results, total))
+
+    elif choice == "h":
+        if not roll_history:
+            print("No rolls yet!")
+        else:
+            print("\n--- Roll History ---")
+            for i, (rolls, total) in enumerate(roll_history, start=1):
+                print(f"{i}. Rolled: {' '.join(str(x) for x in rolls)} | Total = {total}")
+
     elif choice == "q":
-        print(f"Thanks for playing , {name}! total rolls : {roll_count}")
+        print("Thanks for playing!")
         break
+
     else:
-        print("Please choose R or Q.")
+        print("Invalid choice, please enter 'r', 'h', or 'q'.")
 
