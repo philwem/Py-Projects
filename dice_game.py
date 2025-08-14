@@ -6,11 +6,7 @@ print("=== Dice Rolling Game ===")
 name = input("What's your name?  ").strip() or "Player"
 print(f"Welcome {name}!\n")
 
-num_dice = int(input("How many dice would you like to roll?  "))
-
 roll_count = 0 
-roll_history = []
-
 roll_history = []
 
 print("Welcome to the Dice Rolling Game!")
@@ -33,9 +29,16 @@ while True:
         # Save this roll to history
         roll_history.append((results, total))
 
+        roll_count += 1
+        print(f"You have rolled {roll_count} time(s) this session.")
+
+
+
     elif choice == "h":
         if not roll_history:
             print("No rolls yet!")
+            print(f"Total rolls so far: {roll_count}")
+
         else:
             print("\n--- Roll History ---")
             for i, (rolls, total) in enumerate(roll_history, start=1):
