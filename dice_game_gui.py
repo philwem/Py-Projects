@@ -22,7 +22,7 @@ target_total = 7 # Default target
 
 #Function to rolldice
 def roll_dice():
-    global roll_count
+    global roll_count , win_count
     roll1 = random.randint(1, 6)
     roll2 = random.randint(1, 6)
     roll_count += 1
