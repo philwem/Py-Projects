@@ -1,5 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk
+from tkinter import messagebox #
 import random
 
 #Create main window
@@ -37,6 +38,7 @@ def roll_dice():
     if total == target_total:
         win_count += 1
         win_label.config(text=f"Wins: {win_count}")
+        messagebox.showinfo("🎉 You Win!", f"You hit the target {target_total} in {roll_count} rolls!")
    
 def set_target():
     global target_total
