@@ -1,6 +1,17 @@
-# for seven in range(1, 11):
-#     print(f"7 x {seven} = {7 * seven}")
+#Check whether any filename appears more than once 
 
-for  pyramid in range(1, 7):
-    print(" "  "*" * (pyramid) )
-        #   * (5 - pyramid) + "*" * (2 * pyramid - 1))
+file_list = [
+    'report.csv',
+    'data.xlsx',
+    'summary.docx',
+    'report.asv',
+    'export.pdf',
+    ] 
+for file in file_list:
+    if file_list.count(file) > 1:
+        print("Duplicate found")
+        break
+    else :
+        print("All files are unique")
+
+
